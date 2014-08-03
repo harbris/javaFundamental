@@ -26,7 +26,7 @@ public class ClientAcceptor extends Thread {
       
       acceptSelector = Selector.open();
       ssc = ServerSocketChannel.open();
-      ssc.configureBlocking(false);            
+      ssc.configureBlocking(true);            
       // 지정한 포트에 서버소켓 바인딩
       InetSocketAddress address = new InetSocketAddress(port);
       ssc.socket().bind(address);         
@@ -36,6 +36,7 @@ public class ClientAcceptor extends Thread {
    public void run() {
       try {
          while(true) {
+        	// selector와 관련된 이벤트가 발생할때까지 블럭킹!
             int numKeys = acceptSelector.select();
             if (numKeys > 0) {
                Iterator iter = acceptSelector.selectedKeys().iterator();
