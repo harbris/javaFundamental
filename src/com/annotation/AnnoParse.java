@@ -9,7 +9,7 @@ public class AnnoParse {
         try {
             for (Method method : AnnoParse.class
                     .getClassLoader()
-                    .loadClass(("com.annotation3.Test"))
+                    .loadClass(("com.annotation1.Test"))
                     .getMethods()) {
                 // checks if MethodInfo annotation is present for the method
                 if (method.isAnnotationPresent(OnjInfo.class)) {
