@@ -17,7 +17,7 @@ public class EchoServer {
 			ServerSocket server = new ServerSocket(10001);
 			System.out.println("접속을 기다립니다.");
 			Socket sock = server.accept();
-			/*InetAddress inetaddr = sock.getInetAddress();
+			InetAddress inetaddr = sock.getInetAddress();
 			System.out.println(inetaddr.getHostAddress() + " 로 부터 접속하였습니다.");
 			OutputStream out = sock.getOutputStream();
 			InputStream in = sock.getInputStream();
@@ -31,7 +31,7 @@ public class EchoServer {
 			}	
 			pw.close();	
 			br.close();	
-			sock.close();	*/
+			sock.close();	
 		}catch(Exception e){		
 			System.out.println(e);	
 		}		
