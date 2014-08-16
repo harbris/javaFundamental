@@ -7,11 +7,11 @@ import java.nio.channels.ScatteringByteChannel;
 public class ScatterTest {
 
 	public static void main(String[] args) throws IOException {
-		FileInputStream fin = new FileInputStream("C:/news.txt");
+		FileInputStream fin = new FileInputStream("C://Users//Administrator//git//javaFundermental//src//com//nio//base//test.txt");
 		ScatteringByteChannel channel = fin.getChannel();
 		
-		ByteBuffer header = ByteBuffer.allocateDirect(100);
-		ByteBuffer body = ByteBuffer.allocateDirect(200);		
+		ByteBuffer header = ByteBuffer.allocateDirect(200);
+		ByteBuffer body = ByteBuffer.allocateDirect(300);		
 		ByteBuffer[] buffers = { header, body };
 				
 		int readCount = (int) channel.read(buffers);
