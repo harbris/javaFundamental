@@ -25,9 +25,68 @@ package com.algo;
 출력
 
 각 테스트 케이스마다 한 줄에 모든 학생을 친구끼리만 짝지어줄 수 있는 방법의 수를 출력합니다. 
+
+예제 입력
+
+3 
+2 1 
+0 1 
+4 6 
+0 1 1 2 2 3 3 0 0 2 1 3 
+6 10 
+0 1 0 2 1 2 1 3 1 4 2 3 2 4 3 4 3 5 4 5
+
+예제 출력
+
+1
+3
+4
  
 */
 
 public class Picnic {
+
+	
+	static Boolean[][] areFriends = new Boolean[10][10];
+	static int n = 0;
+	
+
+	public static void main(String[] args) {
+		areFriends[0][1] = true;
+		areFriends[0][2] = true;
+		areFriends[1][2] = true;
+		areFriends[1][3] = true;
+		areFriends[1][4] = true;
+		areFriends[2][3] = true;
+		areFriends[2][4] = true;
+		areFriends[3][4] = true;
+		areFriends[3][5] = true;
+		areFriends[4][5] = true;
+		Boolean[] test = new Boolean[10];
+		System.out.print(countPairings(test));
+	}
+
+	static int countPairings(Boolean[] test){
+		int firstFree = -1;
+		
+		for(int i=0; i <n; ++i){
+			if(!test[i]){
+				firstFree = i;
+				break;
+			}
+		}
+
+		if(firstFree == -1) return 1;
+		int ret = 0;
+		for(int pairWith = firstFree+1 ; pairWith < n; ++pairWith){
+			if(!test[pairWith] && areFriends[firstFree][pairWith]){
+				test[firstFree] = test[pairWith] = true;
+				ret += countPairings(test);
+				test[firstFree] = test[pairWith] = false;
+			}
+		}
+		
+		return ret;
+	}
 	
 }
