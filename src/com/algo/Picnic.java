@@ -48,10 +48,17 @@ public class Picnic {
 
 	
 	static Boolean[][] areFriends = new Boolean[10][10];
-	static int n = 0;
+	static int n = 6;
 	
 
 	public static void main(String[] args) {
+		
+		for (int i = 0; i < 10; i++) {
+		      for (int j = 0; j < 10; j++) {
+		    	  areFriends[i][j] = false;
+		      }
+		 }
+		
 		areFriends[0][1] = true;
 		areFriends[0][2] = true;
 		areFriends[1][2] = true;
@@ -62,8 +69,21 @@ public class Picnic {
 		areFriends[3][4] = true;
 		areFriends[3][5] = true;
 		areFriends[4][5] = true;
+		
 		Boolean[] test = new Boolean[10];
+		test[0] = false;
+		test[1] = false;
+		test[2] = false;
+		test[3] = false;
+		test[4] = false;
+		test[5] = false;
+		test[6] = false;
+		test[7] = false;
+		test[8] = false;
+		test[9] = false;
+		//countPairings(test);
 		System.out.print(countPairings(test));
+		//System.out.println(Sum(3));
 	}
 
 	static int countPairings(Boolean[] test){
@@ -81,12 +101,24 @@ public class Picnic {
 		for(int pairWith = firstFree+1 ; pairWith < n; ++pairWith){
 			if(!test[pairWith] && areFriends[firstFree][pairWith]){
 				test[firstFree] = test[pairWith] = true;
+				System.out.println("true="+firstFree+"|"+pairWith);
 				ret += countPairings(test);
+				System.out.println(ret);
 				test[firstFree] = test[pairWith] = false;
+				System.out.println("false="+firstFree+"|"+pairWith);
 			}
 		}
 		
 		return ret;
+	}
+	
+	//기본적인 재귀호출
+	static int Sum(int i){
+		if (1 == i) {
+			return 1;
+		}else{
+			return Sum(i-1) + i;
+		}
 	}
 	
 }
