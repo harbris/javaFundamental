@@ -81,9 +81,7 @@ public class Picnic {
 		test[7] = false;
 		test[8] = false;
 		test[9] = false;
-		//countPairings(test);
 		System.out.print(countPairings(test));
-		//System.out.println(Sum(3));
 	}
 
 	static int countPairings(Boolean[] test){
@@ -101,12 +99,8 @@ public class Picnic {
 		for(int pairWith = firstFree+1 ; pairWith < n; ++pairWith){
 			if(!test[pairWith] && areFriends[firstFree][pairWith]){
 				test[firstFree] = test[pairWith] = true;
-				System.out.println("true="+firstFree+"|"+pairWith);
 				ret += countPairings(test);
-				//System.out.println("true="+firstFree+"|"+pairWith);
-				//System.out.println(ret);
 				test[firstFree] = test[pairWith] = false;
-				//System.out.println("false="+firstFree+"|"+pairWith);
 			}
 		}
 		
