@@ -9,7 +9,7 @@ public class AnnoParse {
         try {
             for (Method method : AnnoParse.class
                     .getClassLoader()
-                    .loadClass(("com.annotation3.Test"))
+                    .loadClass(("com.annotation.Test"))
                     .getMethods()) {
                 // checks if MethodInfo annotation is present for the method
                 if (method.isAnnotationPresent(OnjInfo.class)) {
@@ -19,8 +19,8 @@ public class AnnoParse {
                             System.out.println("Annotation in Method '"
                                     + method + "' : " + anno);
                         }
-                        OnjInfo methodAnno = method
-                                .getAnnotation(OnjInfo.class);
+                        OnjInfo methodAnno = method.getAnnotation(OnjInfo.class);
+                                //.getAnnotation(OnjInfo.class);
                         if (methodAnno.year() == "2200") {
                             System.out.println("forever!! oraclejava, onj"+ method);
                         }

@@ -12,7 +12,7 @@ public class Test {
         return "Overriding toString method";
     }
  
-    @Deprecated
+   /* @Deprecated
     @OnjInfo(name = "oraclejava")
     public static void oldMethod() {
         System.out.println("old method(oraclejava),사용중지.");
@@ -29,6 +29,6 @@ public class Test {
         List l = new ArrayList();
         l.add("oraclejava");
         oldMethod();
-    }
+    }*/
  
 }

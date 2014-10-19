@@ -103,9 +103,10 @@ public class Picnic {
 				test[firstFree] = test[pairWith] = true;
 				System.out.println("true="+firstFree+"|"+pairWith);
 				ret += countPairings(test);
-				System.out.println(ret);
+				//System.out.println("true="+firstFree+"|"+pairWith);
+				//System.out.println(ret);
 				test[firstFree] = test[pairWith] = false;
-				System.out.println("false="+firstFree+"|"+pairWith);
+				//System.out.println("false="+firstFree+"|"+pairWith);
 			}
 		}
 		
