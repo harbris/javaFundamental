@@ -31,7 +31,8 @@ public class SingleTon{
 	}*/
 	
 	//ver3.지연 초기화 싱글턴 방식 스레드에 안전한
-	private static SingleTon instance = null;
+	//synchronized 키워드때문에 성능이 나빠진다
+	/*private static SingleTon instance = null;
 	
 	private SingleTon(){}
 	
@@ -45,5 +46,15 @@ public class SingleTon{
 	
 	public void log(String msg){
 		System.out.println(System.currentTimeMillis()+": "+msg);
+	}*/
+	
+	//ver4.내부 클래스 지연 초기화 싱글턴 방식 
+	//성능에도 영향이 없고 스레드에도 안전하다
+	private static class SingleTonHolder{
+		public static final SingleTon instance = new SingleTon();
+	}
+	
+	public static SingleTon getInstance(){
+		return SingleTonHolder.instance;
 	}
 }
